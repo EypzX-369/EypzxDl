@@ -1,804 +1,1041 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ===================== SEO ===================== -->
-  <title>eypzxdl – Free Song Downloader | eypz Music</title>
-  <meta name="description" content="Download any song for free with eypzxdl. Search by song name or paste a URL. Fast, clean, and free music downloads by eypz." />
-  <meta name="keywords" content="eypzxdl, eypz, song downloader, free music download, download songs, eypz music, eypzxdl download, music downloader" />
-  <meta name="author" content="eypz" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://dl-song.eypz.in/" />
+<meta charset="UTF-8" />
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://dl-song.eypz.in/" />
-  <meta property="og:title" content="eypzxdl – Free Song Downloader | eypz" />
-  <meta property="og:description" content="Search any song and download it instantly. Powered by eypz. Fast, free, no ads." />
-  <meta property="og:image" content="https://dl-song.eypz.in/og-image.png" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+/>
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="eypzxdl – Free Song Downloader | eypz" />
-  <meta name="twitter:description" content="Search any song and download it instantly. Powered by eypz." />
-  <meta name="twitter:image" content="https://dl-song.eypz.in/og-image.png" />
+<title>eypzxdl</title>
 
-  <!-- Structured Data / JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "eypzxdl",
-    "url": "https://dl-song.eypz.in",
-    "description": "Free song downloader by eypz. Search by song name or URL and download instantly.",
-    "applicationCategory": "MusicApplication",
-    "author": {
-      "@type": "Person",
-      "name": "eypz"
-    },
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    }
+<link
+  rel="preconnect"
+  href="https://fonts.googleapis.com"
+/>
+
+<link
+  rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin
+/>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap"
+  rel="stylesheet"
+/>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+:root{
+  --bg:#0a0a0f;
+  --surface:#12121a;
+  --card:#1a1a26;
+  --border:#2a2a3e;
+  --accent:#7c6af7;
+  --accent2:#f06292;
+  --accent3:#4dd0e1;
+  --text:#e8e6f0;
+  --muted:#8884a0;
+  --success:#66bb6a;
+  --error:#ef5350;
+  --mono:'DM Mono', monospace;
+  --sans:'DM Sans', sans-serif;
+  --display:'Syne', sans-serif;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--sans);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;
+}
+
+.blob{
+  position:fixed;
+  border-radius:50%;
+  filter:blur(120px);
+  opacity:.12;
+  pointer-events:none;
+}
+
+.blob-1{
+  width:600px;
+  height:600px;
+  background:var(--accent);
+  top:-200px;
+  left:-200px;
+}
+
+.blob-2{
+  width:500px;
+  height:500px;
+  background:var(--accent2);
+  bottom:-150px;
+  right:-150px;
+}
+
+.wrapper{
+  position:relative;
+  z-index:1;
+  max-width:900px;
+  margin:auto;
+  padding:24px;
+}
+
+header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:24px 0;
+  border-bottom:1px solid var(--border);
+  margin-bottom:70px;
+}
+
+.logo{
+  font-family:var(--display);
+  font-size:1.4rem;
+  font-weight:800;
+}
+
+.logo span{
+  color:var(--accent);
+}
+
+.badge{
+  font-family:var(--mono);
+  font-size:.7rem;
+  background:rgba(124,106,247,.15);
+  border:1px solid rgba(124,106,247,.35);
+  color:var(--accent);
+  padding:4px 10px;
+  border-radius:999px;
+}
+
+.hero{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.hero p{
+  color:var(--muted);
+  margin-top:14px;
+}
+
+.hero h1{
+  font-family:var(--display);
+  font-size:clamp(3rem,8vw,5rem);
+  line-height:1;
+  letter-spacing:-.04em;
+  background:linear-gradient(
+    135deg,
+    #fff 20%,
+    var(--accent) 60%,
+    var(--accent2)
+  );
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.search-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:30px;
+  margin-bottom:30px;
+}
+
+.input-row{
+  display:flex;
+  gap:14px;
+}
+
+#query{
+  flex:1;
+  padding:16px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:var(--text);
+  outline:none;
+  font-size:1rem;
+}
+
+#query:focus{
+  border-color:var(--accent);
+}
+
+.btn{
+  border:none;
+  cursor:pointer;
+  border-radius:14px;
+  padding:14px 24px;
+  font-family:var(--display);
+  font-weight:700;
+  transition:.2s;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+}
+
+.btn-primary{
+  background:linear-gradient(
+    135deg,
+    var(--accent),
+    #a78bfa
+  );
+  color:white;
+}
+
+.btn-download{
+  background:linear-gradient(
+    135deg,
+    var(--success),
+    #43a047
+  );
+  color:white;
+}
+
+.btn-outline{
+  background:transparent;
+  border:1px solid var(--border);
+  color:var(--text);
+}
+
+#status-bar{
+  display:none;
+  margin-bottom:16px;
+  padding:14px;
+  border-radius:12px;
+  font-size:.9rem;
+}
+
+.success{
+  background:rgba(102,187,106,.12);
+  color:var(--success);
+  border:1px solid rgba(102,187,106,.3);
+}
+
+.error{
+  background:rgba(239,83,80,.12);
+  color:var(--error);
+  border:1px solid rgba(239,83,80,.3);
+}
+
+.spinner-wrap{
+  display:none;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+  padding:30px;
+}
+
+.spinner{
+  width:24px;
+  height:24px;
+  border:3px solid var(--border);
+  border-top-color:var(--accent);
+  border-radius:50%;
+  animation:spin .7s linear infinite;
+}
+
+@keyframes spin{
+  to{
+    transform:rotate(360deg);
   }
-  </script>
+}
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+#result-card{
+  display:none;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  overflow:hidden;
+}
 
-  <style>
-    /* ===== RESET & BASE ===== */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+.result-header{
+  padding:18px;
+  border-bottom:1px solid var(--border);
+}
 
-    :root {
-      --bg:        #0a0a0f;
-      --surface:   #12121a;
-      --card:      #1a1a26;
-      --border:    #2a2a3e;
-      --accent:    #7c6af7;
-      --accent2:   #f06292;
-      --accent3:   #4dd0e1;
-      --text:      #e8e6f0;
-      --muted:     #8884a0;
-      --success:   #66bb6a;
-      --error:     #ef5350;
-      --mono:      'DM Mono', monospace;
-      --sans:      'DM Sans', sans-serif;
-      --display:   'Syne', sans-serif;
-    }
+.song-info{
+  display:none;
+  gap:20px;
+  align-items:center;
+  padding:24px;
+  border-bottom:1px solid var(--border);
+}
 
-    html { scroll-behavior: smooth; }
+.song-thumb{
+  width:90px;
+  height:90px;
+  border-radius:14px;
+  object-fit:cover;
+}
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--sans);
-      font-size: 16px;
-      line-height: 1.6;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+.song-thumb-placeholder{
+  width:90px;
+  height:90px;
+  border-radius:14px;
+  background:linear-gradient(
+    135deg,
+    var(--accent),
+    var(--accent2)
+  );
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:2rem;
+}
 
-    /* ===== NOISE TEXTURE OVERLAY ===== */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
-    }
+.song-actions{
+  display:none;
+  gap:12px;
+  padding:24px;
+  border-bottom:1px solid var(--border);
+}
 
-    /* ===== GRADIENT BLOBS ===== */
-    .blob {
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(120px);
-      opacity: 0.12;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .blob-1 { width: 600px; height: 600px; background: var(--accent); top: -200px; left: -200px; animation: drift 18s ease-in-out infinite alternate; }
-    .blob-2 { width: 500px; height: 500px; background: var(--accent2); bottom: -150px; right: -150px; animation: drift 22s ease-in-out infinite alternate-reverse; }
-    .blob-3 { width: 400px; height: 400px; background: var(--accent3); top: 40%; left: 50%; animation: drift 15s ease-in-out infinite alternate; }
-    @keyframes drift { from { transform: translate(0,0) scale(1); } to { transform: translate(40px,30px) scale(1.1); } }
+.json-viewer{
+  padding:24px;
+}
 
-    /* ===== LAYOUT ===== */
-    .wrapper {
-      position: relative;
-      z-index: 1;
-      max-width: 780px;
-      margin: 0 auto;
-      padding: 0 24px 80px;
-    }
+pre{
+  overflow:auto;
+  max-height:320px;
+  font-family:var(--mono);
+  color:#b8b5d0;
+}
 
-    /* ===== HEADER / NAV ===== */
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 28px 0 20px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 70px;
-    }
+.playlist-track{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:14px;
+  padding:14px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:rgba(255,255,255,.02);
+}
 
-    .logo {
-      font-family: var(--display);
-      font-size: 1.3rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      color: var(--text);
-      text-decoration: none;
-    }
-    .logo span { color: var(--accent); }
+.playlist-track p{
+  color:var(--muted);
+  font-size:.85rem;
+}
 
-    .badge {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      background: rgba(124,106,247,0.15);
-      border: 1px solid rgba(124,106,247,0.35);
-      color: var(--accent);
-      padding: 4px 10px;
-      border-radius: 999px;
-      letter-spacing: 0.08em;
-    }
+#playlist-box{
+  display:none;
+  padding:24px;
+  border-bottom:1px solid var(--border);
+}
 
-    /* ===== HERO ===== */
-    .hero {
-      text-align: center;
-      margin-bottom: 56px;
-      animation: fadeUp 0.8s ease both;
-    }
-    @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+#playlist-tracks{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-top:20px;
+}
 
-    .hero-eyebrow {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
+footer{
+  margin-top:60px;
+  text-align:center;
+  color:var(--muted);
+  border-top:1px solid var(--border);
+  padding-top:30px;
+}
 
-    .hero h1 {
-      font-family: var(--display);
-      font-size: clamp(2.8rem, 8vw, 5rem);
-      font-weight: 800;
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-      margin-bottom: 20px;
-      background: linear-gradient(135deg, #fff 30%, var(--accent) 70%, var(--accent2) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+.json-key{
+  color:#a78bfa;
+}
 
-    .hero p {
-      color: var(--muted);
-      font-size: 1.05rem;
-      max-width: 500px;
-      margin: 0 auto;
-      font-weight: 300;
-    }
+.json-str{
+  color:#86efac;
+}
 
-    /* ===== SEARCH BOX ===== */
-    .search-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 32px;
-      margin-bottom: 32px;
-      animation: fadeUp 0.9s 0.1s ease both;
-      box-shadow: 0 8px 60px rgba(0,0,0,0.4);
-    }
+.json-num{
+  color:#fbbf24;
+}
 
-    .search-label {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 12px;
-      display: block;
-    }
+.json-bool{
+  color:var(--accent3);
+}
 
-    .input-row {
-      display: flex;
-      gap: 12px;
-    }
+.json-null{
+  color:var(--muted);
+}
 
-    .input-wrap {
-      flex: 1;
-      position: relative;
-    }
+@media(max-width:600px){
 
-    .input-wrap svg {
-      position: absolute;
-      left: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--muted);
-      pointer-events: none;
-    }
+  .input-row{
+    flex-direction:column;
+  }
 
-    #query {
-      width: 100%;
-      padding: 14px 16px 14px 46px;
-      background: var(--surface);
-      border: 1.5px solid var(--border);
-      border-radius: 12px;
-      color: var(--text);
-      font-family: var(--sans);
-      font-size: 1rem;
-      outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    #query::placeholder { color: var(--muted); }
-    #query:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(124,106,247,0.18);
-    }
+  .song-actions{
+    flex-direction:column;
+  }
 
-    .btn {
-      padding: 14px 28px;
-      border-radius: 12px;
-      border: none;
-      cursor: pointer;
-      font-family: var(--display);
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
-      white-space: nowrap;
-    }
-    .btn:active { transform: scale(0.97); }
+  .playlist-track{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+}
 
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), #a78bfa);
-      color: #fff;
-      box-shadow: 0 4px 20px rgba(124,106,247,0.35);
-    }
-    .btn-primary:hover { box-shadow: 0 6px 28px rgba(124,106,247,0.5); transform: translateY(-1px); }
-    .btn-primary:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+</style>
 
-    /* ===== RESULT CARD ===== */
-    .result-area {
-      animation: fadeUp 1s 0.2s ease both;
-    }
-
-    #result-card {
-      display: none;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 8px 60px rgba(0,0,0,0.4);
-      margin-bottom: 32px;
-    }
-
-    .result-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 18px 24px;
-      border-bottom: 1px solid var(--border);
-      background: rgba(255,255,255,0.02);
-    }
-
-    .dot { width: 10px; height: 10px; border-radius: 50%; }
-    .dot-r { background: #ff5f57; }
-    .dot-y { background: #febc2e; }
-    .dot-g { background: #28c840; }
-
-    .result-title-bar {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      color: var(--muted);
-      flex: 1;
-      text-align: center;
-    }
-
-    /* Song info section */
-    .song-info {
-      display: none;
-      padding: 24px;
-      gap: 20px;
-      border-bottom: 1px solid var(--border);
-      align-items: center;
-    }
-    .song-thumb {
-      width: 80px;
-      height: 80px;
-      border-radius: 12px;
-      object-fit: cover;
-      background: var(--surface);
-      flex-shrink: 0;
-    }
-    .song-thumb-placeholder {
-      width: 80px;
-      height: 80px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-    }
-    .song-details h2 {
-      font-family: var(--display);
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-    .song-details p { color: var(--muted); font-size: 0.9rem; }
-
-    .song-actions {
-      display: none;
-      padding: 20px 24px;
-      gap: 12px;
-      border-bottom: 1px solid var(--border);
-      flex-wrap: wrap;
-    }
-
-    .btn-download {
-      background: linear-gradient(135deg, var(--success), #43a047);
-      color: #fff;
-      box-shadow: 0 4px 16px rgba(102,187,106,0.3);
-    }
-    .btn-download:hover { box-shadow: 0 6px 24px rgba(102,187,106,0.45); transform: translateY(-1px); }
-
-    .btn-outline {
-      background: transparent;
-      border: 1.5px solid var(--border);
-      color: var(--text);
-    }
-    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* Raw JSON viewer */
-    .json-viewer {
-      padding: 20px 24px;
-    }
-    .json-label {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-    pre#result {
-      font-family: var(--mono);
-      font-size: 0.8rem;
-      line-height: 1.7;
-      color: #b8b5d0;
-      white-space: pre-wrap;
-      word-break: break-all;
-      max-height: 320px;
-      overflow-y: auto;
-    }
-    pre#result::-webkit-scrollbar { width: 5px; }
-    pre#result::-webkit-scrollbar-track { background: transparent; }
-    pre#result::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
-
-    /* ===== LOADING SPINNER ===== */
-    .spinner-wrap {
-      display: none;
-      justify-content: center;
-      align-items: center;
-      gap: 14px;
-      padding: 32px;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-    .spinner {
-      width: 22px; height: 22px;
-      border: 2.5px solid var(--border);
-      border-top-color: var(--accent);
-      border-radius: 50%;
-      animation: spin 0.7s linear infinite;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    /* ===== STATUS BANNER ===== */
-    #status-bar {
-      display: none;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 18px;
-      border-radius: 10px;
-      margin-bottom: 16px;
-      font-size: 0.875rem;
-    }
-    #status-bar.success { background: rgba(102,187,106,0.12); border: 1px solid rgba(102,187,106,0.3); color: var(--success); }
-    #status-bar.error   { background: rgba(239,83,80,0.12);  border: 1px solid rgba(239,83,80,0.3);  color: var(--error); }
-
-    /* ===== HOW IT WORKS ===== */
-    .section-title {
-      font-family: var(--display);
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 24px;
-      letter-spacing: -0.02em;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      margin-bottom: 60px;
-      animation: fadeUp 1s 0.3s ease both;
-    }
-
-    .step-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .step-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-
-    .step-num {
-      font-family: var(--display);
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--accent);
-      opacity: 0.5;
-      line-height: 1;
-      margin-bottom: 12px;
-    }
-    .step-card h3 { font-family: var(--display); font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
-    .step-card p { color: var(--muted); font-size: 0.85rem; }
-
-    /* ===== FAQ ===== */
-    .faq { margin-bottom: 60px; animation: fadeUp 1s 0.4s ease both; }
-
-    details {
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      margin-bottom: 10px;
-      background: var(--card);
-      overflow: hidden;
-    }
-    summary {
-      padding: 18px 22px;
-      cursor: pointer;
-      font-family: var(--display);
-      font-weight: 600;
-      font-size: 0.95rem;
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: color 0.2s;
-    }
-    summary:hover { color: var(--accent); }
-    summary::after { content: '+'; font-size: 1.4rem; font-weight: 300; color: var(--muted); }
-    details[open] summary::after { content: '−'; }
-    details[open] summary { color: var(--accent); border-bottom: 1px solid var(--border); }
-    .faq-body { padding: 16px 22px; color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
-
-    /* ===== FOOTER ===== */
-    footer {
-      text-align: center;
-      padding: 28px 0 0;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 0.82rem;
-    }
-    footer a { color: var(--accent); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-    .footer-logo { font-family: var(--display); font-size: 1.1rem; font-weight: 800; color: var(--text); margin-bottom: 8px; }
-    .footer-logo span { color: var(--accent); }
-
-    /* ===== MOBILE ===== */
-    @media (max-width: 560px) {
-      .input-row { flex-direction: column; }
-      .btn { width: 100%; }
-      header { flex-direction: column; gap: 10px; }
-    }
-
-    /* ===== SYNTAX COLORING FOR JSON ===== */
-    .json-key   { color: #a78bfa; }
-    .json-str   { color: #86efac; }
-    .json-num   { color: #fbbf24; }
-    .json-bool  { color: var(--accent3); }
-    .json-null  { color: var(--muted); }
-  </style>
 </head>
+
 <body>
 
-<!-- Blobs -->
 <div class="blob blob-1"></div>
 <div class="blob blob-2"></div>
-<div class="blob blob-3"></div>
 
 <div class="wrapper">
 
-  <!-- HEADER -->
-  <header>
-    <a class="logo" href="/">eypz<span>xdl</span></a>
-    <span class="badge">FREE · FAST · OPEN</span>
-  </header>
+<header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <p class="hero-eyebrow">by eypz &nbsp;·&nbsp; dl-song.eypz.in</p>
-    <h1>Download<br/>Any Song.</h1>
-    <p>Search by song name or paste a direct URL. Instant, free music downloads — no sign-up, no ads, no limits.</p>
-  </section>
+<div class="logo">
+  eypz<span>xdl</span>
+</div>
 
-  <!-- SEARCH CARD -->
-  <div class="search-card">
-    <span class="search-label">Song name or URL</span>
-    <div class="input-row">
-      <div class="input-wrap">
-        <!-- Search icon -->
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-        </svg>
-        <input type="text" id="query" placeholder="e.g. Blinding Lights, or paste a URL…" autocomplete="off" />
-      </div>
-      <button class="btn btn-primary" id="download-btn" onclick="downloadSong()">
-        Download
-      </button>
-    </div>
-  </div>
+<div class="badge">
+  FREE · FAST
+</div>
 
-  <!-- STATUS BAR -->
-  <div id="status-bar"></div>
+</header>
 
-  <!-- RESULT CARD -->
-  <div class="result-area">
-    <div class="spinner-wrap" id="spinner">
-      <div class="spinner"></div>
-      <span>Fetching song info…</span>
-    </div>
+<section class="hero">
 
-    <div id="result-card">
-      <div class="result-header">
-        <span class="dot dot-r"></span>
-        <span class="dot dot-y"></span>
-        <span class="dot dot-g"></span>
-        <span class="result-title-bar" id="result-title-bar">eypzxdl — response</span>
-      </div>
+<h1>
+  Download<br/>
+  Any Song
+</h1>
 
-      <!-- Song Info -->
-      <div class="song-info" id="song-info">
-        <div class="song-thumb-placeholder" id="thumb-placeholder">🎵</div>
-        <img class="song-thumb" id="song-thumb" src="" alt="Album art" style="display:none;" />
-        <div class="song-details">
-          <h2 id="song-title">Unknown Title</h2>
-          <p id="song-artist">Unknown Artist</p>
-        </div>
-      </div>
+<p>
+  Search songs, YouTube links or Spotify playlists instantly.
+</p>
 
-      <!-- Action Buttons -->
-      <div class="song-actions" id="song-actions">
-        <a class="btn btn-download" id="direct-dl" href="#" download>
-          ⬇ Download MP3
-        </a>
-        <button class="btn btn-outline" onclick="copyLink()">⧉ Copy Link</button>
-      </div>
+</section>
 
-      <!-- Raw JSON -->
-      <div class="json-viewer">
-        <p class="json-label">Raw Response</p>
-        <pre id="result">Waiting for request…</pre>
-      </div>
-    </div>
-  </div>
+<div class="search-card">
 
-  <!-- HOW IT WORKS -->
-  <section style="margin-bottom:48px; animation: fadeUp 1s 0.25s ease both;">
-    <h2 class="section-title">How it works</h2>
-    <div class="steps">
-      <div class="step-card">
-        <div class="step-num">01</div>
-        <h3>Search</h3>
-        <p>Type the song name or paste a direct link in the search box above.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">02</div>
-        <h3>Fetch</h3>
-        <p>eypzxdl contacts the API and retrieves the best available download link.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">03</div>
-        <h3>Download</h3>
-        <p>Click the download button and save the MP3 directly to your device.</p>
-      </div>
-    </div>
-  </section>
+<div class="input-row">
 
-  <!-- FAQ -->
-  <section class="faq">
-    <h2 class="section-title">FAQ</h2>
+<input
+  id="query"
+  type="text"
+  placeholder="Song name, YouTube URL or Spotify playlist..."
+/>
 
-    <details>
-      <summary>Is eypzxdl free to use?</summary>
-      <div class="faq-body">Yes, completely free. No account required, no premium tier. Just search and download.</div>
-    </details>
+<button
+  class="btn btn-primary"
+  id="download-btn"
+  onclick="downloadSong()"
+>
+  Download
+</button>
 
-    <details>
-      <summary>What formats are available?</summary>
-      <div class="faq-body">Downloads are served as high-quality MP3 files. More formats may be added in the future based on API support.</div>
-    </details>
+</div>
 
-    <details>
-      <summary>Can I search by URL?</summary>
-      <div class="faq-body">Absolutely. Paste a direct song URL into the search field — eypzxdl will extract and process it automatically.</div>
-    </details>
+</div>
 
-    <details>
-      <summary>Who made eypzxdl?</summary>
-      <div class="faq-body">eypzxdl is built and maintained by <strong>eypz</strong>. The project lives at <a href="https://eypz.koyeb.app" target="_blank">eypz.koyeb.app</a>.</div>
-    </details>
+<div id="status-bar"></div>
 
-    <details>
-      <summary>Why does the API need authentication?</summary>
-      <div class="faq-body">A short auth handshake sets a session cookie that identifies requests as coming from dl-song.eypz.in. This prevents abuse and keeps the service running smoothly for everyone.</div>
-    </details>
-  </section>
+<div class="spinner-wrap" id="spinner">
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-logo">eypz<span>xdl</span></div>
-    <p>Free song downloader &nbsp;·&nbsp; <a href="https://eypz.koyeb.app" target="_blank">eypz.koyeb.app</a> &nbsp;·&nbsp; made by <strong>eypz</strong></p>
-    <p style="margin-top:8px; opacity:0.5;">&copy; 2025 eypz. All rights reserved.</p>
-  </footer>
+<div class="spinner"></div>
 
-</div><!-- /wrapper -->
+<span>
+  Fetching...
+</span>
+
+</div>
+
+<div id="result-card">
+
+<div class="result-header">
+
+eypzxdl — response
+
+</div>
+
+<div class="song-info" id="song-info">
+
+<div
+  class="song-thumb-placeholder"
+  id="thumb-placeholder"
+>
+  🎵
+</div>
+
+<img
+  class="song-thumb"
+  id="song-thumb"
+  src=""
+  style="display:none;"
+/>
+
+<div>
+
+<h2 id="song-title">
+  Unknown Title
+</h2>
+
+<p id="song-artist">
+  Unknown Artist
+</p>
+
+</div>
+
+</div>
+
+<div
+  class="song-actions"
+  id="song-actions"
+>
+
+<a
+  class="btn btn-download"
+  id="direct-dl"
+  href="#"
+  target="_blank"
+>
+  Download MP3
+</a>
+
+<button
+  class="btn btn-outline"
+  onclick="copyLink()"
+>
+  Copy Link
+</button>
+
+</div>
+
+<div id="playlist-box">
+
+<h2 id="playlist-name"></h2>
+
+<p id="playlist-owner"></p>
+
+<div id="playlist-tracks"></div>
+
+</div>
+
+<div class="json-viewer">
+
+<pre id="result">
+Waiting for request...
+</pre>
+
+</div>
+
+</div>
+
+<footer>
+
+<p>
+  eypzxdl
+</p>
+
+</footer>
+
+</div>
 
 <script>
-const API = "https://eypz.koyeb.app";
+
+const API =
+  "https://eypz.koyeb.app";
+
 const HEADERS = {
-  "x-song-origin": "dl-song.eypz.in",
-  "origin": "https://dl-song.eypz.in",
-  "accept-encoding": "gzip, deflate, br, zstd"
+  "x-song-origin":
+    "song-dl.eypz.in"
 };
 
-// ─── AUTH ───────────────────────────────────────────────
-async function auth() {
-  try {
-    await fetch(`${API}/auth`, { method: "GET", credentials: "include", headers: HEADERS });
-  } catch (e) { /* silent */ }
-}
-auth();
+// AUTH
 
-// ─── SYNTAX HIGHLIGHT ───────────────────────────────────
-function highlight(json) {
-  return JSON.stringify(json, null, 2)
-    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-    .replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
-      let cls = 'json-num';
-      if (/^"/.test(match)) cls = /:$/.test(match) ? 'json-key' : 'json-str';
-      else if (/true|false/.test(match)) cls = 'json-bool';
-      else if (/null/.test(match)) cls = 'json-null';
-      return `<span class="${cls}">${match}</span>`;
-    });
-}
+async function auth(){
 
-// ─── STATUS BANNER ──────────────────────────────────────
-function showStatus(msg, type) {
-  const bar = document.getElementById('status-bar');
-  bar.textContent = msg;
-  bar.className = type;
-  bar.style.display = 'flex';
-  if (type === 'success') setTimeout(() => { bar.style.display = 'none'; }, 4000);
-}
+  try{
 
-// ─── POPULATE SONG INFO ─────────────────────────────────
-function populateSong(data) {
-  const titleEl    = document.getElementById('song-title');
-  const artistEl   = document.getElementById('song-artist');
-  const thumbEl    = document.getElementById('song-thumb');
-  const placehEl   = document.getElementById('thumb-placeholder');
-  const dlBtn      = document.getElementById('direct-dl');
-  const infoSec    = document.getElementById('song-info');
-  const actionSec  = document.getElementById('song-actions');
-
-  // Try common field names different APIs use
-  const title  = data.title  || data.name   || data.song  || null;
-  const artist = data.artist || data.author || data.channel || null;
-  const thumb  = data.thumbnail || data.image || data.cover || null;
-  const url    = data.url    || data.download_url || data.link || data.audio || null;
-
-  if (title || artist || url) {
-    if (title)  titleEl.textContent  = title;
-    if (artist) artistEl.textContent = artist;
-
-    if (thumb) {
-      thumbEl.src = thumb;
-      thumbEl.style.display = 'block';
-      placehEl.style.display = 'none';
-    }
-
-    if (url) {
-      dlBtn.href = url;
-      dlBtn.setAttribute('download', (title || 'song') + '.mp3');
-      actionSec.style.display = 'flex';
-    }
-
-    infoSec.style.display = 'flex';
-    document.getElementById('result-title-bar').textContent = title || 'eypzxdl — response';
-  }
-}
-
-// ─── COPY LINK ──────────────────────────────────────────
-function copyLink() {
-  const href = document.getElementById('direct-dl').href;
-  if (href && href !== '#') {
-    navigator.clipboard.writeText(href).then(() => showStatus('✓ Link copied to clipboard', 'success'));
-  }
-}
-
-// ─── DOWNLOAD ───────────────────────────────────────────
-async function downloadSong() {
-  const q = document.getElementById('query').value.trim();
-  if (!q) { showStatus('Please enter a song name or URL.', 'error'); return; }
-
-  const btn     = document.getElementById('download-btn');
-  const spinner = document.getElementById('spinner');
-  const card    = document.getElementById('result-card');
-  const pre     = document.getElementById('result');
-  const infoSec = document.getElementById('song-info');
-  const actSec  = document.getElementById('song-actions');
-  const statusBar = document.getElementById('status-bar');
-
-  // Reset
-  statusBar.style.display = 'none';
-  infoSec.style.display = 'none';
-  actSec.style.display = 'none';
-  document.getElementById('song-thumb').style.display = 'none';
-  document.getElementById('thumb-placeholder').style.display = 'flex';
-  document.getElementById('song-title').textContent = 'Unknown Title';
-  document.getElementById('song-artist').textContent = 'Unknown Artist';
-  document.getElementById('direct-dl').href = '#';
-
-  btn.disabled = true;
-  spinner.style.display = 'flex';
-  card.style.display = 'none';
-
-  try {
-    const res = await fetch(
-      `${API}/api/dl?q=${encodeURIComponent(q)}`,
-      { method: "GET", credentials: "include", headers: HEADERS }
+    await fetch(
+      `${API}/auth`,
+      {
+        method:"GET",
+        credentials:"include",
+        headers:HEADERS
+      }
     );
 
-    const data = await res.json();
-    console.log('[eypzxdl]', data);
+  }catch(e){
 
-    spinner.style.display = 'none';
-    card.style.display = 'block';
-    pre.innerHTML = highlight(data);
-
-    populateSong(data);
-
-    if (res.ok) showStatus('✓ Song found!', 'success');
-    else showStatus('⚠ API returned an error — see raw response below.', 'error');
-
-  } catch (err) {
-    console.error(err);
-    spinner.style.display = 'none';
-    card.style.display = 'block';
-    pre.textContent = 'Error: ' + err.message;
-    showStatus('✗ Request failed: ' + err.message, 'error');
-  } finally {
-    btn.disabled = false;
+    console.error(e);
   }
 }
 
-// Enter key support
-document.getElementById('query').addEventListener('keydown', e => {
-  if (e.key === 'Enter') downloadSong();
-});
+auth();
+
+// STATUS
+
+function showStatus(msg,type){
+
+  const bar =
+    document.getElementById(
+      'status-bar'
+    );
+
+  bar.innerText = msg;
+
+  bar.className = type;
+
+  bar.style.display = 'block';
+
+  if(type === 'success'){
+
+    setTimeout(()=>{
+
+      bar.style.display='none';
+
+    },4000);
+  }
+}
+
+// COPY
+
+function copyLink(){
+
+  const href =
+    document.getElementById(
+      'direct-dl'
+    ).href;
+
+  navigator.clipboard
+    .writeText(href);
+
+  showStatus(
+    'Copied link',
+    'success'
+  );
+}
+
+// RESET
+
+function resetUI(){
+
+  document.getElementById(
+    'song-info'
+  ).style.display='none';
+
+  document.getElementById(
+    'song-actions'
+  ).style.display='none';
+
+  document.getElementById(
+    'playlist-box'
+  ).style.display='none';
+
+  document.getElementById(
+    'song-thumb'
+  ).style.display='none';
+
+  document.getElementById(
+    'thumb-placeholder'
+  ).style.display='flex';
+
+  document.getElementById(
+    'direct-dl'
+  ).href='#';
+}
+
+// JSON HIGHLIGHT
+
+function highlight(json){
+
+  return JSON.stringify(
+    json,
+    null,
+    2
+  )
+
+  .replace(/&/g,'&amp;')
+  .replace(/</g,'&lt;')
+  .replace(/>/g,'&gt;')
+
+  .replace(
+    /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g,
+
+    function(match){
+
+      let cls='json-num';
+
+      if(/^"/.test(match)){
+
+        cls=/:$/.test(match)
+          ?'json-key'
+          :'json-str';
+      }
+
+      else if(
+        /true|false/.test(match)
+      ){
+
+        cls='json-bool';
+      }
+
+      else if(/null/.test(match)){
+
+        cls='json-null';
+      }
+
+      return `
+        <span class="${cls}">
+          ${match}
+        </span>
+      `;
+    }
+  );
+}
+
+// SONG UI
+
+function populateSong(data){
+
+  const result =
+    data.result || data;
+
+  const title =
+    result.title ||
+    result.name ||
+    "Unknown Title";
+
+  const thumb =
+    result.thumbnail ||
+    "";
+
+  const url =
+    result.url ||
+    result.link ||
+    "";
+
+  document.getElementById(
+    'song-title'
+  ).innerText = title;
+
+  document.getElementById(
+    'song-artist'
+  ).innerText =
+    result.duration ||
+    'MP3 Audio';
+
+  if(thumb){
+
+    const img =
+      document.getElementById(
+        'song-thumb'
+      );
+
+    img.src = thumb;
+
+    img.style.display='block';
+
+    document.getElementById(
+      'thumb-placeholder'
+    ).style.display='none';
+  }
+
+  if(url){
+
+    document.getElementById(
+      'direct-dl'
+    ).href = url;
+
+    document.getElementById(
+      'song-actions'
+    ).style.display='flex';
+  }
+
+  document.getElementById(
+    'song-info'
+  ).style.display='flex';
+}
+
+// PLAYLIST UI
+
+function populatePlaylist(data){
+
+  const result =
+    data.result;
+
+  const box =
+    document.getElementById(
+      'playlist-box'
+    );
+
+  const tracks =
+    document.getElementById(
+      'playlist-tracks'
+    );
+
+  tracks.innerHTML='';
+
+  document.getElementById(
+    'playlist-name'
+  ).innerText =
+    result.info.name;
+
+  document.getElementById(
+    'playlist-owner'
+  ).innerText =
+    `by ${result.info.owner}`;
+
+  box.style.display='block';
+
+  result.tracks.forEach(track=>{
+
+    const div =
+      document.createElement('div');
+
+    div.className =
+      'playlist-track';
+
+    div.innerHTML = `
+      <div>
+        <strong>
+          ${track.name}
+        </strong>
+
+        <p>
+          ${track.artist}
+        </p>
+      </div>
+
+      <button
+        class="btn btn-download"
+        onclick="downloadTrack('${(track.name+' '+track.artist).replace(/'/g,"\\'")}')"
+      >
+        Download
+      </button>
+    `;
+
+    tracks.appendChild(div);
+  });
+}
+
+// TRACK DOWNLOAD
+
+async function downloadTrack(query){
+
+  try{
+
+    showStatus(
+      'Fetching track...',
+      'success'
+    );
+
+    const res =
+      await fetch(
+        `${API}/api/dl?q=${encodeURIComponent(query)}`,
+        {
+          method:"GET",
+          credentials:"include",
+          headers:HEADERS
+        }
+      );
+
+    const data =
+      await res.json();
+
+    if(!data.status){
+
+      return showStatus(
+        data.message,
+        'error'
+      );
+    }
+
+    window.open(
+      data.result.url,
+      '_blank'
+    );
+
+  }catch(err){
+
+    showStatus(
+      err.message,
+      'error'
+    );
+  }
+}
+
+// MAIN DOWNLOAD
+
+async function downloadSong(){
+
+  const q =
+    document.getElementById(
+      'query'
+    ).value.trim();
+
+  if(!q){
+
+    return showStatus(
+      'Enter a query',
+      'error'
+    );
+  }
+
+  resetUI();
+
+  const btn =
+    document.getElementById(
+      'download-btn'
+    );
+
+  const spinner =
+    document.getElementById(
+      'spinner'
+    );
+
+  const card =
+    document.getElementById(
+      'result-card'
+    );
+
+  const pre =
+    document.getElementById(
+      'result'
+    );
+
+  btn.disabled=true;
+
+  spinner.style.display='flex';
+
+  card.style.display='none';
+
+  try{
+
+    let endpoint='/api/dl';
+
+    let param='q';
+
+    if(
+      q.includes(
+        'spotify.com/playlist/'
+      )
+    ){
+
+      endpoint='/api/playlist';
+
+      param='url';
+    }
+
+    const res =
+      await fetch(
+        `${API}${endpoint}?${param}=${encodeURIComponent(q)}`,
+        {
+          method:'GET',
+          credentials:'include',
+          headers:HEADERS
+        }
+      );
+
+    const data =
+      await res.json();
+
+    spinner.style.display='none';
+
+    card.style.display='block';
+
+    pre.innerHTML =
+      highlight(data);
+
+    if(!data.status){
+
+      return showStatus(
+        data.message ||
+        'Failed',
+        'error'
+      );
+    }
+
+    if(
+      endpoint.includes(
+        'playlist'
+      )
+    ){
+
+      populatePlaylist(data);
+
+      showStatus(
+        'Playlist fetched',
+        'success'
+      );
+
+    }else{
+
+      populateSong(data);
+
+      showStatus(
+        'Song fetched',
+        'success'
+      );
+    }
+
+  }catch(err){
+
+    spinner.style.display='none';
+
+    card.style.display='block';
+
+    pre.innerText =
+      err.message;
+
+    showStatus(
+      err.message,
+      'error'
+    );
+
+  }finally{
+
+    btn.disabled=false;
+  }
+}
+
+// ENTER
+
+document
+  .getElementById(
+    'query'
+  )
+
+  .addEventListener(
+    'keydown',
+
+    e=>{
+
+      if(e.key==='Enter'){
+
+        downloadSong();
+      }
+    }
+  );
+
 </script>
 
 </body>
