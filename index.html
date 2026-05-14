@@ -4,212 +4,212 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- SEO & Discovery -->
-  <title>EypzxDl — Download Music from YouTube & Spotify</title>
-  <meta name="description" content="EypzxDl by Eypz — Instantly download songs from YouTube, Spotify links, or search by name. Fast, free, and clean MP3 downloads." />
-  <meta name="keywords" content="EypzxDl, Eypz, youtube to mp3, spotify downloader, download music, song download, mp3 downloader, free music download, playlist downloader" />
-  <meta name="author" content="Eypz" />
+  <!-- ===================== SEO ===================== -->
+  <title>eypzxdl – Free Song Downloader | eypz Music</title>
+  <meta name="description" content="Download any song for free with eypzxdl. Search by song name or paste a URL. Fast, clean, and free music downloads by eypz." />
+  <meta name="keywords" content="eypzxdl, eypz, song downloader, free music download, download songs, eypz music, eypzxdl download, music downloader" />
+  <meta name="author" content="eypz" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://download.eypz.in/" />
+  <link rel="canonical" href="https://dl-song.eypz.in/" />
 
-  <!-- Open Graph -->
+  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://download.eypz.in/" />
-  <meta property="og:title" content="EypzxDl — Download Music from YouTube & Spotify" />
-  <meta property="og:description" content="Download any song instantly from YouTube or Spotify. Paste a link or just search by name. Free MP3 downloads powered by Eypz." />
-  <meta property="og:image" content="https://download.eypz.in/og-image.png" />
+  <meta property="og:url" content="https://dl-song.eypz.in/" />
+  <meta property="og:title" content="eypzxdl – Free Song Downloader | eypz" />
+  <meta property="og:description" content="Search any song and download it instantly. Powered by eypz. Fast, free, no ads." />
+  <meta property="og:image" content="https://dl-song.eypz.in/og-image.png" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="EypzxDl — Download Music from YouTube & Spotify" />
-  <meta name="twitter:description" content="Paste any YouTube/Spotify link or search a song name to download MP3s for free." />
-  <meta name="twitter:image" content="https://download.eypz.in/og-image.png" />
+  <meta name="twitter:title" content="eypzxdl – Free Song Downloader | eypz" />
+  <meta name="twitter:description" content="Search any song and download it instantly. Powered by eypz." />
+  <meta name="twitter:image" content="https://dl-song.eypz.in/og-image.png" />
+
+  <!-- Structured Data / JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "eypzxdl",
+    "url": "https://dl-song.eypz.in",
+    "description": "Free song downloader by eypz. Search by song name or URL and download instantly.",
+    "applicationCategory": "MusicApplication",
+    "author": {
+      "@type": "Person",
+      "name": "eypz"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
 
   <style>
-    :root {
-      --bg: #090b10;
-      --surface: #0f1219;
-      --surface2: #161b25;
-      --border: #1e2535;
-      --accent: #00e5a0;
-      --accent2: #00b4ff;
-      --accent-dim: rgba(0, 229, 160, 0.12);
-      --accent2-dim: rgba(0, 180, 255, 0.1);
-      --text: #e8edf5;
-      --muted: #6b7790;
-      --danger: #ff4d6d;
-      --spotify: #1db954;
-      --youtube: #ff0000;
-      --radius: 14px;
-      --font-display: 'Syne', sans-serif;
-      --font-mono: 'DM Mono', monospace;
-    }
-
+    /* ===== RESET & BASE ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0a0a0f;
+      --surface:   #12121a;
+      --card:      #1a1a26;
+      --border:    #2a2a3e;
+      --accent:    #7c6af7;
+      --accent2:   #f06292;
+      --accent3:   #4dd0e1;
+      --text:      #e8e6f0;
+      --muted:     #8884a0;
+      --success:   #66bb6a;
+      --error:     #ef5350;
+      --mono:      'DM Mono', monospace;
+      --sans:      'DM Sans', sans-serif;
+      --display:   'Syne', sans-serif;
+    }
 
     html { scroll-behavior: smooth; }
 
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: var(--font-display);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
       min-height: 100vh;
       overflow-x: hidden;
-      position: relative;
     }
 
-    /* ── Noise grain overlay ── */
+    /* ===== NOISE TEXTURE OVERLAY ===== */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
       pointer-events: none;
       z-index: 0;
-      opacity: 0.4;
     }
 
-    /* ── Ambient blobs ── */
+    /* ===== GRADIENT BLOBS ===== */
     .blob {
       position: fixed;
       border-radius: 50%;
       filter: blur(120px);
+      opacity: 0.12;
       pointer-events: none;
       z-index: 0;
-      animation: drift 12s ease-in-out infinite alternate;
     }
-    .blob1 { width: 500px; height: 500px; background: rgba(0,229,160,0.06); top: -100px; left: -100px; }
-    .blob2 { width: 400px; height: 400px; background: rgba(0,180,255,0.07); bottom: -80px; right: -80px; animation-delay: -6s; }
-    .blob3 { width: 300px; height: 300px; background: rgba(0,229,160,0.04); top: 40%; left: 50%; animation-delay: -3s; }
+    .blob-1 { width: 600px; height: 600px; background: var(--accent); top: -200px; left: -200px; animation: drift 18s ease-in-out infinite alternate; }
+    .blob-2 { width: 500px; height: 500px; background: var(--accent2); bottom: -150px; right: -150px; animation: drift 22s ease-in-out infinite alternate-reverse; }
+    .blob-3 { width: 400px; height: 400px; background: var(--accent3); top: 40%; left: 50%; animation: drift 15s ease-in-out infinite alternate; }
+    @keyframes drift { from { transform: translate(0,0) scale(1); } to { transform: translate(40px,30px) scale(1.1); } }
 
-    @keyframes drift {
-      from { transform: translate(0, 0) scale(1); }
-      to   { transform: translate(30px, 40px) scale(1.08); }
-    }
-
-    /* ── Layout ── */
+    /* ===== LAYOUT ===== */
     .wrapper {
       position: relative;
       z-index: 1;
       max-width: 780px;
       margin: 0 auto;
-      padding: 48px 24px 80px;
+      padding: 0 24px 80px;
     }
 
-    /* ── Header ── */
+    /* ===== HEADER / NAV ===== */
     header {
-      text-align: center;
-      margin-bottom: 52px;
-      animation: fadeUp 0.6s ease both;
-    }
-
-    .logo-badge {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 8px;
-      background: var(--accent-dim);
-      border: 1px solid rgba(0,229,160,0.2);
-      border-radius: 100px;
-      padding: 6px 14px 6px 8px;
-      font-size: 12px;
-      font-family: var(--font-mono);
-      color: var(--accent);
-      margin-bottom: 20px;
-      letter-spacing: 0.04em;
-    }
-    .logo-badge span.dot {
-      width: 8px; height: 8px;
-      background: var(--accent);
-      border-radius: 50%;
-      display: inline-block;
-      animation: pulse 2s ease-in-out infinite;
-    }
-    @keyframes pulse {
-      0%,100% { opacity:1; transform: scale(1); }
-      50%      { opacity:0.5; transform: scale(0.8); }
+      justify-content: space-between;
+      padding: 28px 0 20px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 70px;
     }
 
-    h1 {
-      font-size: clamp(2.4rem, 6vw, 3.8rem);
+    .logo {
+      font-family: var(--display);
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .logo span { color: var(--accent); }
+
+    .badge {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      background: rgba(124,106,247,0.15);
+      border: 1px solid rgba(124,106,247,0.35);
+      color: var(--accent);
+      padding: 4px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.08em;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      text-align: center;
+      margin-bottom: 56px;
+      animation: fadeUp 0.8s ease both;
+    }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-family: var(--display);
+      font-size: clamp(2.8rem, 8vw, 5rem);
       font-weight: 800;
       line-height: 1.05;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.04em;
+      margin-bottom: 20px;
       background: linear-gradient(135deg, #fff 30%, var(--accent) 70%, var(--accent2) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin-bottom: 12px;
     }
 
-    .tagline {
+    .hero p {
       color: var(--muted);
-      font-size: 0.95rem;
-      font-family: var(--font-mono);
+      font-size: 1.05rem;
+      max-width: 500px;
+      margin: 0 auto;
       font-weight: 300;
-      letter-spacing: 0.02em;
     }
 
-    /* ── Tabs ── */
-    .tabs {
-      display: flex;
-      gap: 4px;
-      background: var(--surface);
+    /* ===== SEARCH BOX ===== */
+    .search-card {
+      background: var(--card);
       border: 1px solid var(--border);
-      border-radius: calc(var(--radius) + 2px);
-      padding: 4px;
-      margin-bottom: 28px;
-      animation: fadeUp 0.6s 0.1s ease both;
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 32px;
+      animation: fadeUp 0.9s 0.1s ease both;
+      box-shadow: 0 8px 60px rgba(0,0,0,0.4);
     }
 
-    .tab {
-      flex: 1;
-      padding: 10px 8px;
-      border: none;
-      border-radius: var(--radius);
-      background: transparent;
+    .search-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       color: var(--muted);
-      font-family: var(--font-display);
-      font-size: 0.82rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      white-space: nowrap;
+      margin-bottom: 12px;
+      display: block;
     }
 
-    .tab svg { flex-shrink: 0; }
-
-    .tab:hover { color: var(--text); background: var(--surface2); }
-
-    .tab.active {
-      background: linear-gradient(135deg, rgba(0,229,160,0.18), rgba(0,180,255,0.12));
-      color: var(--accent);
-      border: 1px solid rgba(0,229,160,0.25);
-      box-shadow: 0 0 20px rgba(0,229,160,0.08);
-    }
-
-    /* ── Card ── */
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: calc(var(--radius) + 4px);
-      padding: 28px;
-      animation: fadeUp 0.6s 0.15s ease both;
-    }
-
-    /* ── Input row ── */
     .input-row {
       display: flex;
-      gap: 10px;
-      align-items: stretch;
+      gap: 12px;
     }
 
     .input-wrap {
@@ -219,635 +219,587 @@
 
     .input-wrap svg {
       position: absolute;
-      left: 14px;
+      left: 16px;
       top: 50%;
       transform: translateY(-50%);
       color: var(--muted);
       pointer-events: none;
     }
 
-    input[type="text"] {
+    #query {
       width: 100%;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 14px 14px 14px 42px;
+      padding: 14px 16px 14px 46px;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
       color: var(--text);
-      font-family: var(--font-mono);
-      font-size: 0.88rem;
+      font-family: var(--sans);
+      font-size: 1rem;
       outline: none;
       transition: border-color 0.2s, box-shadow 0.2s;
     }
-
-    input[type="text"]::placeholder { color: var(--muted); }
-
-    input[type="text"]:focus {
-      border-color: rgba(0,229,160,0.4);
-      box-shadow: 0 0 0 3px rgba(0,229,160,0.08);
+    #query::placeholder { color: var(--muted); }
+    #query:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(124,106,247,0.18);
     }
 
-    /* ── Buttons ── */
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 14px 22px;
-      border-radius: var(--radius);
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 0.88rem;
-      cursor: pointer;
-      transition: all 0.2s;
+      padding: 14px 28px;
+      border-radius: 12px;
       border: none;
+      cursor: pointer;
+      font-family: var(--display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
       white-space: nowrap;
     }
+    .btn:active { transform: scale(0.97); }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color: #090b10;
-      box-shadow: 0 4px 20px rgba(0,229,160,0.25);
+      background: linear-gradient(135deg, var(--accent), #a78bfa);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(124,106,247,0.35);
     }
-    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 28px rgba(0,229,160,0.35); }
-    .btn-primary:active { transform: translateY(0); }
-    .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+    .btn-primary:hover { box-shadow: 0 6px 28px rgba(124,106,247,0.5); transform: translateY(-1px); }
+    .btn-primary:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
 
-    .btn-dl {
-      background: var(--accent-dim);
-      color: var(--accent);
-      border: 1px solid rgba(0,229,160,0.25);
-      padding: 10px 18px;
-      font-size: 0.82rem;
+    /* ===== RESULT CARD ===== */
+    .result-area {
+      animation: fadeUp 1s 0.2s ease both;
     }
-    .btn-dl:hover { background: rgba(0,229,160,0.2); }
-    .btn-dl:disabled { opacity: 0.45; cursor: not-allowed; }
 
-    /* ── Status / info line ── */
-    .info-line {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-top: 12px;
-      min-height: 18px;
+    #result-card {
+      display: none;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 60px rgba(0,0,0,0.4);
+      margin-bottom: 32px;
+    }
+
+    .result-header {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 12px;
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
     }
-    .info-line.error { color: var(--danger); }
-    .info-line.success { color: var(--accent); }
 
-    /* ── Spinner ── */
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot-r { background: #ff5f57; }
+    .dot-y { background: #febc2e; }
+    .dot-g { background: #28c840; }
+
+    .result-title-bar {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      flex: 1;
+      text-align: center;
+    }
+
+    /* Song info section */
+    .song-info {
+      display: none;
+      padding: 24px;
+      gap: 20px;
+      border-bottom: 1px solid var(--border);
+      align-items: center;
+    }
+    .song-thumb {
+      width: 80px;
+      height: 80px;
+      border-radius: 12px;
+      object-fit: cover;
+      background: var(--surface);
+      flex-shrink: 0;
+    }
+    .song-thumb-placeholder {
+      width: 80px;
+      height: 80px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+    }
+    .song-details h2 {
+      font-family: var(--display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .song-details p { color: var(--muted); font-size: 0.9rem; }
+
+    .song-actions {
+      display: none;
+      padding: 20px 24px;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+
+    .btn-download {
+      background: linear-gradient(135deg, var(--success), #43a047);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(102,187,106,0.3);
+    }
+    .btn-download:hover { box-shadow: 0 6px 24px rgba(102,187,106,0.45); transform: translateY(-1px); }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--border);
+      color: var(--text);
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* Raw JSON viewer */
+    .json-viewer {
+      padding: 20px 24px;
+    }
+    .json-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    pre#result {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      line-height: 1.7;
+      color: #b8b5d0;
+      white-space: pre-wrap;
+      word-break: break-all;
+      max-height: 320px;
+      overflow-y: auto;
+    }
+    pre#result::-webkit-scrollbar { width: 5px; }
+    pre#result::-webkit-scrollbar-track { background: transparent; }
+    pre#result::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+
+    /* ===== LOADING SPINNER ===== */
+    .spinner-wrap {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      padding: 32px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
     .spinner {
-      width: 14px; height: 14px;
-      border: 2px solid rgba(0,229,160,0.25);
+      width: 22px; height: 22px;
+      border: 2.5px solid var(--border);
       border-top-color: var(--accent);
       border-radius: 50%;
       animation: spin 0.7s linear infinite;
-      display: inline-block;
-      flex-shrink: 0;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* ── Result card (single song) ── */
-    .result-card {
-      margin-top: 24px;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      animation: fadeUp 0.4s ease both;
+    /* ===== STATUS BANNER ===== */
+    #status-bar {
       display: none;
-    }
-    .result-card.show { display: block; }
-
-    .result-inner {
-      display: flex;
       align-items: center;
-      gap: 16px;
-      padding: 16px;
-    }
-
-    .thumb {
-      width: 72px;
-      height: 72px;
+      gap: 10px;
+      padding: 12px 18px;
       border-radius: 10px;
-      object-fit: cover;
-      flex-shrink: 0;
-      background: var(--border);
+      margin-bottom: 16px;
+      font-size: 0.875rem;
     }
+    #status-bar.success { background: rgba(102,187,106,0.12); border: 1px solid rgba(102,187,106,0.3); color: var(--success); }
+    #status-bar.error   { background: rgba(239,83,80,0.12);  border: 1px solid rgba(239,83,80,0.3);  color: var(--error); }
 
-    .result-meta { flex: 1; min-width: 0; }
-    .result-title {
+    /* ===== HOW IT WORKS ===== */
+    .section-title {
+      font-family: var(--display);
+      font-size: 1.5rem;
       font-weight: 700;
-      font-size: 0.95rem;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      margin-bottom: 4px;
-    }
-    .result-duration {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--muted);
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
     }
 
-    /* ── Playlist ── */
-    .playlist-header {
-      display: flex;
-      gap: 18px;
-      align-items: center;
-      padding: 20px;
-      border-bottom: 1px solid var(--border);
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 60px;
+      animation: fadeUp 1s 0.3s ease both;
     }
 
-    .playlist-cover {
-      width: 80px; height: 80px;
-      border-radius: 10px;
-      object-fit: cover;
-      background: var(--border);
-      flex-shrink: 0;
+    .step-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      transition: border-color 0.2s, transform 0.2s;
     }
+    .step-card:hover { border-color: var(--accent); transform: translateY(-2px); }
 
-    .playlist-meta { flex: 1; min-width: 0; }
-    .playlist-name { font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
-    .playlist-owner { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
-    .playlist-count {
-      display: inline-block;
-      margin-top: 6px;
-      background: var(--accent-dim);
+    .step-num {
+      font-family: var(--display);
+      font-size: 2rem;
+      font-weight: 800;
       color: var(--accent);
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      padding: 3px 10px;
-      border-radius: 100px;
-      border: 1px solid rgba(0,229,160,0.2);
+      opacity: 0.5;
+      line-height: 1;
+      margin-bottom: 12px;
     }
+    .step-card h3 { font-family: var(--display); font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+    .step-card p { color: var(--muted); font-size: 0.85rem; }
 
-    .track-list { list-style: none; max-height: 400px; overflow-y: auto; }
-    .track-list::-webkit-scrollbar { width: 4px; }
-    .track-list::-webkit-scrollbar-track { background: transparent; }
-    .track-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+    /* ===== FAQ ===== */
+    .faq { margin-bottom: 60px; animation: fadeUp 1s 0.4s ease both; }
 
-    .track-item {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 12px 20px;
-      border-bottom: 1px solid var(--border);
-      transition: background 0.15s;
-    }
-    .track-item:last-child { border-bottom: none; }
-    .track-item:hover { background: rgba(255,255,255,0.02); }
-
-    .track-num {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      color: var(--muted);
-      width: 22px;
-      text-align: right;
-      flex-shrink: 0;
-    }
-
-    .track-info { flex: 1; min-width: 0; }
-    .track-name {
-      font-size: 0.88rem;
-      font-weight: 600;
-      white-space: nowrap;
+    details {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 10px;
+      background: var(--card);
       overflow: hidden;
-      text-overflow: ellipsis;
     }
-    .track-artist {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      color: var(--muted);
-      margin-top: 2px;
+    summary {
+      padding: 18px 22px;
+      cursor: pointer;
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 0.95rem;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: color 0.2s;
     }
+    summary:hover { color: var(--accent); }
+    summary::after { content: '+'; font-size: 1.4rem; font-weight: 300; color: var(--muted); }
+    details[open] summary::after { content: '−'; }
+    details[open] summary { color: var(--accent); border-bottom: 1px solid var(--border); }
+    .faq-body { padding: 16px 22px; color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
 
-    .track-dl-btn {
-      flex-shrink: 0;
-      padding: 7px 14px;
-      font-size: 0.75rem;
-      border-radius: 8px;
-    }
-
-    /* ── Divider ── */
-    .divider {
-      text-align: center;
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--muted);
-      letter-spacing: 0.1em;
-      padding: 28px 0 0;
-    }
-
-    /* ── Footer ── */
+    /* ===== FOOTER ===== */
     footer {
-      position: relative; z-index: 1;
       text-align: center;
-      padding: 32px 24px;
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
+      padding: 28px 0 0;
+      border-top: 1px solid var(--border);
       color: var(--muted);
+      font-size: 0.82rem;
     }
-    footer span { color: var(--accent); }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .footer-logo { font-family: var(--display); font-size: 1.1rem; font-weight: 800; color: var(--text); margin-bottom: 8px; }
+    .footer-logo span { color: var(--accent); }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ── Mobile ── */
+    /* ===== MOBILE ===== */
     @media (max-width: 560px) {
       .input-row { flex-direction: column; }
       .btn { width: 100%; }
-      .result-inner { flex-direction: column; text-align: center; }
-      .result-meta { width: 100%; }
-      .playlist-header { flex-direction: column; text-align: center; }
-      .tab { font-size: 0.72rem; padding: 9px 4px; }
+      header { flex-direction: column; gap: 10px; }
     }
+
+    /* ===== SYNTAX COLORING FOR JSON ===== */
+    .json-key   { color: #a78bfa; }
+    .json-str   { color: #86efac; }
+    .json-num   { color: #fbbf24; }
+    .json-bool  { color: var(--accent3); }
+    .json-null  { color: var(--muted); }
   </style>
 </head>
 <body>
 
-<div class="blob blob1"></div>
-<div class="blob blob2"></div>
-<div class="blob blob3"></div>
+<!-- Blobs -->
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
 
 <div class="wrapper">
 
-  <!-- Header -->
+  <!-- HEADER -->
   <header>
-    <div class="logo-badge">
-      <span class="dot"></span>
-      EypzxDl &nbsp;·&nbsp; v1.0
-    </div>
-    <h1>EypzxDl</h1>
-    <p class="tagline">// download any song &mdash; youtube · spotify · search</p>
+    <a class="logo" href="/">eypz<span>xdl</span></a>
+    <span class="badge">FREE · FAST · OPEN</span>
   </header>
 
-  <!-- Tabs -->
-  <div class="tabs" role="tablist">
-    <button class="tab active" data-tab="search" role="tab" aria-selected="true">
-      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      Search
-    </button>
-    <button class="tab" data-tab="youtube" role="tab" aria-selected="false">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3 3 0 0 0-2.12-2.12C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.57A3 3 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3 3 0 0 0 2.12 2.12C4.5 20.5 12 20.5 12 20.5s7.5 0 9.38-.57a3 3 0 0 0 2.12-2.12C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
-      YouTube
-    </button>
-    <button class="tab" data-tab="spotify" role="tab" aria-selected="false">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-      Spotify Track
-    </button>
-    <button class="tab" data-tab="playlist" role="tab" aria-selected="false">
-      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15V6m0 0H8m13 0-7 7M3 6h12M3 12h9M3 18h6"/></svg>
-      Playlist
-    </button>
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">by eypz &nbsp;·&nbsp; dl-song.eypz.in</p>
+    <h1>Download<br/>Any Song.</h1>
+    <p>Search by song name or paste a direct URL. Instant, free music downloads — no sign-up, no ads, no limits.</p>
+  </section>
+
+  <!-- SEARCH CARD -->
+  <div class="search-card">
+    <span class="search-label">Song name or URL</span>
+    <div class="input-row">
+      <div class="input-wrap">
+        <!-- Search icon -->
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" id="query" placeholder="e.g. Blinding Lights, or paste a URL…" autocomplete="off" />
+      </div>
+      <button class="btn btn-primary" id="download-btn" onclick="downloadSong()">
+        Download
+      </button>
+    </div>
   </div>
 
-  <!-- Card -->
-  <div class="card">
+  <!-- STATUS BAR -->
+  <div id="status-bar"></div>
 
-    <!-- Search Tab -->
-    <div id="tab-search" class="tab-panel">
-      <div class="input-row">
-        <div class="input-wrap">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          <input id="search-input" type="text" placeholder="Song name, artist, anything..." autocomplete="off" />
-        </div>
-        <button class="btn btn-primary" id="search-btn">
-          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Fetch
-        </button>
-      </div>
-      <div class="info-line" id="search-status"></div>
-      <div class="result-card" id="search-result"></div>
+  <!-- RESULT CARD -->
+  <div class="result-area">
+    <div class="spinner-wrap" id="spinner">
+      <div class="spinner"></div>
+      <span>Fetching song info…</span>
     </div>
 
-    <!-- YouTube Tab -->
-    <div id="tab-youtube" class="tab-panel" style="display:none">
-      <div class="input-row">
-        <div class="input-wrap">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--muted)"><path d="M23.5 6.19a3 3 0 0 0-2.12-2.12C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.57A3 3 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3 3 0 0 0 2.12 2.12C4.5 20.5 12 20.5 12 20.5s7.5 0 9.38-.57a3 3 0 0 0 2.12-2.12C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
-          <input id="yt-input" type="text" placeholder="https://youtube.com/watch?v=..." autocomplete="off" />
-        </div>
-        <button class="btn btn-primary" id="yt-btn">
-          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Fetch
-        </button>
+    <div id="result-card">
+      <div class="result-header">
+        <span class="dot dot-r"></span>
+        <span class="dot dot-y"></span>
+        <span class="dot dot-g"></span>
+        <span class="result-title-bar" id="result-title-bar">eypzxdl — response</span>
       </div>
-      <div class="info-line" id="yt-status"></div>
-      <div class="result-card" id="yt-result"></div>
-    </div>
 
-    <!-- Spotify Track Tab -->
-    <div id="tab-spotify" class="tab-panel" style="display:none">
-      <div class="input-row">
-        <div class="input-wrap">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--muted)"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-          <input id="sp-input" type="text" placeholder="https://open.spotify.com/track/..." autocomplete="off" />
+      <!-- Song Info -->
+      <div class="song-info" id="song-info">
+        <div class="song-thumb-placeholder" id="thumb-placeholder">🎵</div>
+        <img class="song-thumb" id="song-thumb" src="" alt="Album art" style="display:none;" />
+        <div class="song-details">
+          <h2 id="song-title">Unknown Title</h2>
+          <p id="song-artist">Unknown Artist</p>
         </div>
-        <button class="btn btn-primary" id="sp-btn">
-          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Fetch
-        </button>
       </div>
-      <div class="info-line" id="sp-status"></div>
-      <div class="result-card" id="sp-result"></div>
-    </div>
 
-    <!-- Playlist Tab -->
-    <div id="tab-playlist" class="tab-panel" style="display:none">
-      <div class="input-row">
-        <div class="input-wrap">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--muted)"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-          <input id="pl-input" type="text" placeholder="https://open.spotify.com/playlist/..." autocomplete="off" />
-        </div>
-        <button class="btn btn-primary" id="pl-btn">
-          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Load
-        </button>
+      <!-- Action Buttons -->
+      <div class="song-actions" id="song-actions">
+        <a class="btn btn-download" id="direct-dl" href="#" download>
+          ⬇ Download MP3
+        </a>
+        <button class="btn btn-outline" onclick="copyLink()">⧉ Copy Link</button>
       </div>
-      <div class="info-line" id="pl-status"></div>
-      <div class="result-card" id="pl-result"></div>
+
+      <!-- Raw JSON -->
+      <div class="json-viewer">
+        <p class="json-label">Raw Response</p>
+        <pre id="result">Waiting for request…</pre>
+      </div>
     </div>
+  </div>
 
-  </div><!-- /card -->
+  <!-- HOW IT WORKS -->
+  <section style="margin-bottom:48px; animation: fadeUp 1s 0.25s ease both;">
+    <h2 class="section-title">How it works</h2>
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h3>Search</h3>
+        <p>Type the song name or paste a direct link in the search box above.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h3>Fetch</h3>
+        <p>eypzxdl contacts the API and retrieves the best available download link.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h3>Download</h3>
+        <p>Click the download button and save the MP3 directly to your device.</p>
+      </div>
+    </div>
+  </section>
 
-  <div class="divider">— — —</div>
+  <!-- FAQ -->
+  <section class="faq">
+    <h2 class="section-title">FAQ</h2>
+
+    <details>
+      <summary>Is eypzxdl free to use?</summary>
+      <div class="faq-body">Yes, completely free. No account required, no premium tier. Just search and download.</div>
+    </details>
+
+    <details>
+      <summary>What formats are available?</summary>
+      <div class="faq-body">Downloads are served as high-quality MP3 files. More formats may be added in the future based on API support.</div>
+    </details>
+
+    <details>
+      <summary>Can I search by URL?</summary>
+      <div class="faq-body">Absolutely. Paste a direct song URL into the search field — eypzxdl will extract and process it automatically.</div>
+    </details>
+
+    <details>
+      <summary>Who made eypzxdl?</summary>
+      <div class="faq-body">eypzxdl is built and maintained by <strong>eypz</strong>. The project lives at <a href="https://eypz.koyeb.app" target="_blank">eypz.koyeb.app</a>.</div>
+    </details>
+
+    <details>
+      <summary>Why does the API need authentication?</summary>
+      <div class="faq-body">A short auth handshake sets a session cookie that identifies requests as coming from dl-song.eypz.in. This prevents abuse and keeps the service running smoothly for everyone.</div>
+    </details>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">eypz<span>xdl</span></div>
+    <p>Free song downloader &nbsp;·&nbsp; <a href="https://eypz.koyeb.app" target="_blank">eypz.koyeb.app</a> &nbsp;·&nbsp; made by <strong>eypz</strong></p>
+    <p style="margin-top:8px; opacity:0.5;">&copy; 2025 eypz. All rights reserved.</p>
+  </footer>
 
 </div><!-- /wrapper -->
 
-<footer>
-  crafted by <span>Eypz</span> &nbsp;·&nbsp; EypzxDl &nbsp;·&nbsp; all rights reserved
-</footer>
-
 <script>
-  // ── Config ──────────────────────────────────────────────
-  const API_BASE = "https://download.eypz.in/api"; // your backend
+const API = "https://eypz.koyeb.app";
+const HEADERS = {
+  "x-song-origin": "dl-song.eypz.in",
+  "origin": "https://dl-song.eypz.in",
+  "accept-encoding": "gzip, deflate, br, zstd"
+};
 
-  // ── Domain Protection ───────────────────────────────────
-  (function guardDomain() {
-    const allowed = "download.eypz.in";
-    if (location.hostname !== allowed) {
-      document.body.innerHTML = `
-        <div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
-          font-family:'Syne',sans-serif;color:#e8edf5;background:#090b10;text-align:center;padding:24px;">
-          <div style="font-size:3rem;margin-bottom:16px;">⛔</div>
-          <div style="font-size:1.4rem;font-weight:800;margin-bottom:8px;">Access Denied</div>
-          <div style="color:#6b7790;font-size:0.85rem;">This app only runs on <strong style="color:#00e5a0">download.eypz.in</strong></div>
-        </div>`;
-    }
-  })();
+// ─── AUTH ───────────────────────────────────────────────
+async function auth() {
+  try {
+    await fetch(`${API}/auth`, { method: "GET", credentials: "include", headers: HEADERS });
+  } catch (e) { /* silent */ }
+}
+auth();
 
-  // ── Tabs ────────────────────────────────────────────────
-  document.querySelectorAll('.tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      document.querySelectorAll('.tab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
-      document.querySelectorAll('.tab-panel').forEach(p => p.style.display = 'none');
-      tab.classList.add('active');
-      tab.setAttribute('aria-selected','true');
-      document.getElementById('tab-' + tab.dataset.tab).style.display = 'block';
+// ─── SYNTAX HIGHLIGHT ───────────────────────────────────
+function highlight(json) {
+  return JSON.stringify(json, null, 2)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+      let cls = 'json-num';
+      if (/^"/.test(match)) cls = /:$/.test(match) ? 'json-key' : 'json-str';
+      else if (/true|false/.test(match)) cls = 'json-bool';
+      else if (/null/.test(match)) cls = 'json-null';
+      return `<span class="${cls}">${match}</span>`;
     });
-  });
+}
 
-  // ── Helpers ─────────────────────────────────────────────
-  function setStatus(el, msg, type = '') {
-    el.className = 'info-line' + (type ? ' ' + type : '');
-    el.innerHTML = msg;
-  }
+// ─── STATUS BANNER ──────────────────────────────────────
+function showStatus(msg, type) {
+  const bar = document.getElementById('status-bar');
+  bar.textContent = msg;
+  bar.className = type;
+  bar.style.display = 'flex';
+  if (type === 'success') setTimeout(() => { bar.style.display = 'none'; }, 4000);
+}
 
-  function loadingStatus(el, msg) {
-    el.className = 'info-line';
-    el.innerHTML = `<span class="spinner"></span> ${msg}`;
-  }
+// ─── POPULATE SONG INFO ─────────────────────────────────
+function populateSong(data) {
+  const titleEl    = document.getElementById('song-title');
+  const artistEl   = document.getElementById('song-artist');
+  const thumbEl    = document.getElementById('song-thumb');
+  const placehEl   = document.getElementById('thumb-placeholder');
+  const dlBtn      = document.getElementById('direct-dl');
+  const infoSec    = document.getElementById('song-info');
+  const actionSec  = document.getElementById('song-actions');
 
-  function fmtDuration(sec) {
-    if (!sec) return '';
-    const m = Math.floor(sec / 60), s = sec % 60;
-    return `${m}:${String(s).padStart(2,'0')}`;
-  }
+  // Try common field names different APIs use
+  const title  = data.title  || data.name   || data.song  || null;
+  const artist = data.artist || data.author || data.channel || null;
+  const thumb  = data.thumbnail || data.image || data.cover || null;
+  const url    = data.url    || data.download_url || data.link || data.audio || null;
 
-  function songResultHTML(data, query) {
-    return `
-      <div class="result-inner">
-        <img class="thumb" src="${data.thumbnail || ''}" alt="thumbnail" onerror="this.style.display='none'" />
-        <div class="result-meta">
-          <div class="result-title" title="${escHtml(data.title)}">${escHtml(data.title)}</div>
-          ${data.duration ? `<div class="result-duration">${fmtDuration(data.duration)}</div>` : ''}
-        </div>
-        <button class="btn btn-dl track-dl-btn" data-url="${escHtml(data.url)}" data-title="${escHtml(data.title)}">
-          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-          Download
-        </button>
-      </div>`;
-  }
+  if (title || artist || url) {
+    if (title)  titleEl.textContent  = title;
+    if (artist) artistEl.textContent = artist;
 
-  function escHtml(s) {
-    return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-  }
-
-  // ── Download trigger ────────────────────────────────────
-  document.addEventListener('click', (e) => {
-    const btn = e.target.closest('[data-url]');
-    if (!btn) return;
-    const url = btn.dataset.url;
-    const title = btn.dataset.title || 'download';
-    if (!url) return;
-
-    btn.disabled = true;
-    btn.innerHTML = `<span class="spinner"></span> Fetching...`;
-
-    // open the direct link — the server streams the MP3
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = title + '.mp3';
-    a.target = '_blank';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-
-    setTimeout(() => {
-      btn.disabled = false;
-      btn.innerHTML = `<svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg> Download`;
-    }, 3000);
-  });
-
-  // ── Generic fetch helper ─────────────────────────────────
-  async function fetchDl(query) {
-    const res = await fetch(`${API_BASE}/dl?q=${encodeURIComponent(query)}`, {
-      headers: { 'Origin': location.origin, 'Referer': location.href }
-    });
-    const json = await res.json();
-    if (!json.status) throw new Error(json.message || 'Failed');
-    return json.result;
-  }
-
-  // ── Search ───────────────────────────────────────────────
-  document.getElementById('search-btn').addEventListener('click', async () => {
-    const q = document.getElementById('search-input').value.trim();
-    const statusEl = document.getElementById('search-status');
-    const resultEl = document.getElementById('search-result');
-    if (!q) { setStatus(statusEl, 'Please enter a search query.', 'error'); return; }
-
-    const btn = document.getElementById('search-btn');
-    btn.disabled = true;
-    resultEl.classList.remove('show');
-    loadingStatus(statusEl, 'Searching...');
-
-    try {
-      const data = await fetchDl(q);
-      resultEl.innerHTML = songResultHTML(data, q);
-      resultEl.classList.add('show');
-      setStatus(statusEl, '✓ Found — click Download to save', 'success');
-    } catch(err) {
-      setStatus(statusEl, '✗ ' + err.message, 'error');
-    } finally { btn.disabled = false; }
-  });
-
-  document.getElementById('search-input').addEventListener('keydown', e => {
-    if (e.key === 'Enter') document.getElementById('search-btn').click();
-  });
-
-  // ── YouTube ──────────────────────────────────────────────
-  document.getElementById('yt-btn').addEventListener('click', async () => {
-    const q = document.getElementById('yt-input').value.trim();
-    const statusEl = document.getElementById('yt-status');
-    const resultEl = document.getElementById('yt-result');
-    if (!q) { setStatus(statusEl, 'Paste a YouTube URL.', 'error'); return; }
-
-    const btn = document.getElementById('yt-btn');
-    btn.disabled = true;
-    resultEl.classList.remove('show');
-    loadingStatus(statusEl, 'Fetching from YouTube...');
-
-    try {
-      const data = await fetchDl(q);
-      resultEl.innerHTML = songResultHTML(data, q);
-      resultEl.classList.add('show');
-      setStatus(statusEl, '✓ Ready — click Download', 'success');
-    } catch(err) {
-      setStatus(statusEl, '✗ ' + err.message, 'error');
-    } finally { btn.disabled = false; }
-  });
-
-  document.getElementById('yt-input').addEventListener('keydown', e => {
-    if (e.key === 'Enter') document.getElementById('yt-btn').click();
-  });
-
-  // ── Spotify Track ────────────────────────────────────────
-  document.getElementById('sp-btn').addEventListener('click', async () => {
-    const q = document.getElementById('sp-input').value.trim();
-    const statusEl = document.getElementById('sp-status');
-    const resultEl = document.getElementById('sp-result');
-    if (!q) { setStatus(statusEl, 'Paste a Spotify track URL.', 'error'); return; }
-
-    const btn = document.getElementById('sp-btn');
-    btn.disabled = true;
-    resultEl.classList.remove('show');
-    loadingStatus(statusEl, 'Converting via Spotify...');
-
-    try {
-      const data = await fetchDl(q);
-      resultEl.innerHTML = songResultHTML(data, q);
-      resultEl.classList.add('show');
-      setStatus(statusEl, '✓ Ready — click Download', 'success');
-    } catch(err) {
-      setStatus(statusEl, '✗ ' + err.message, 'error');
-    } finally { btn.disabled = false; }
-  });
-
-  document.getElementById('sp-input').addEventListener('keydown', e => {
-    if (e.key === 'Enter') document.getElementById('sp-btn').click();
-  });
-
-  // ── Spotify Playlist ─────────────────────────────────────
-  document.getElementById('pl-btn').addEventListener('click', async () => {
-    const q = document.getElementById('pl-input').value.trim();
-    const statusEl = document.getElementById('pl-status');
-    const resultEl = document.getElementById('pl-result');
-    if (!q) { setStatus(statusEl, 'Paste a Spotify playlist URL.', 'error'); return; }
-
-    const btn = document.getElementById('pl-btn');
-    btn.disabled = true;
-    resultEl.classList.remove('show');
-    loadingStatus(statusEl, 'Loading playlist...');
-
-    try {
-      const res = await fetch(`${API_BASE}/playlist?url=${encodeURIComponent(q)}`, {
-        headers: { 'Origin': location.origin, 'Referer': location.href }
-      });
-      const json = await res.json();
-      if (!json.status) throw new Error(json.message || 'Failed');
-
-      const { info, tracks } = json.result;
-      let tracksHTML = '';
-      tracks.forEach((t, i) => {
-        tracksHTML += `
-          <li class="track-item">
-            <span class="track-num">${i + 1}</span>
-            <div class="track-info">
-              <div class="track-name">${escHtml(t.name)}</div>
-              <div class="track-artist">${escHtml(t.artist)}</div>
-            </div>
-            <button class="btn btn-dl track-dl-btn"
-              data-query="${escHtml(t.name + ' ' + t.artist)}"
-              data-title="${escHtml(t.name)}"
-              onclick="downloadTrack(this)">
-              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-              DL
-            </button>
-          </li>`;
-      });
-
-      resultEl.innerHTML = `
-        <div class="playlist-header">
-          ${info.images_url ? `<img class="playlist-cover" src="${escHtml(info.images_url)}" alt="cover" />` : ''}
-          <div class="playlist-meta">
-            <div class="playlist-name">${escHtml(info.name)}</div>
-            <div class="playlist-owner">by ${escHtml(info.owner)}</div>
-            <span class="playlist-count">${info.total_tracks} tracks</span>
-          </div>
-        </div>
-        <ul class="track-list">${tracksHTML}</ul>`;
-
-      resultEl.classList.add('show');
-      setStatus(statusEl, `✓ ${tracks.length} tracks loaded`, 'success');
-    } catch(err) {
-      setStatus(statusEl, '✗ ' + err.message, 'error');
-    } finally { btn.disabled = false; }
-  });
-
-  document.getElementById('pl-input').addEventListener('keydown', e => {
-    if (e.key === 'Enter') document.getElementById('pl-btn').click();
-  });
-
-  // ── Per-track download from playlist ────────────────────
-  async function downloadTrack(btn) {
-    const query = btn.dataset.query;
-    const title = btn.dataset.title || 'track';
-    btn.disabled = true;
-    const orig = btn.innerHTML;
-    btn.innerHTML = `<span class="spinner"></span>`;
-
-    try {
-      const data = await fetchDl(query);
-      const a = document.createElement('a');
-      a.href = data.url;
-      a.download = title + '.mp3';
-      a.target = '_blank';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      btn.innerHTML = `✓`;
-      btn.style.color = 'var(--accent)';
-      setTimeout(() => { btn.innerHTML = orig; btn.disabled = false; btn.style.color = ''; }, 4000);
-    } catch {
-      btn.innerHTML = `✗`;
-      btn.style.color = 'var(--danger)';
-      setTimeout(() => { btn.innerHTML = orig; btn.disabled = false; btn.style.color = ''; }, 3000);
+    if (thumb) {
+      thumbEl.src = thumb;
+      thumbEl.style.display = 'block';
+      placehEl.style.display = 'none';
     }
+
+    if (url) {
+      dlBtn.href = url;
+      dlBtn.setAttribute('download', (title || 'song') + '.mp3');
+      actionSec.style.display = 'flex';
+    }
+
+    infoSec.style.display = 'flex';
+    document.getElementById('result-title-bar').textContent = title || 'eypzxdl — response';
   }
+}
+
+// ─── COPY LINK ──────────────────────────────────────────
+function copyLink() {
+  const href = document.getElementById('direct-dl').href;
+  if (href && href !== '#') {
+    navigator.clipboard.writeText(href).then(() => showStatus('✓ Link copied to clipboard', 'success'));
+  }
+}
+
+// ─── DOWNLOAD ───────────────────────────────────────────
+async function downloadSong() {
+  const q = document.getElementById('query').value.trim();
+  if (!q) { showStatus('Please enter a song name or URL.', 'error'); return; }
+
+  const btn     = document.getElementById('download-btn');
+  const spinner = document.getElementById('spinner');
+  const card    = document.getElementById('result-card');
+  const pre     = document.getElementById('result');
+  const infoSec = document.getElementById('song-info');
+  const actSec  = document.getElementById('song-actions');
+  const statusBar = document.getElementById('status-bar');
+
+  // Reset
+  statusBar.style.display = 'none';
+  infoSec.style.display = 'none';
+  actSec.style.display = 'none';
+  document.getElementById('song-thumb').style.display = 'none';
+  document.getElementById('thumb-placeholder').style.display = 'flex';
+  document.getElementById('song-title').textContent = 'Unknown Title';
+  document.getElementById('song-artist').textContent = 'Unknown Artist';
+  document.getElementById('direct-dl').href = '#';
+
+  btn.disabled = true;
+  spinner.style.display = 'flex';
+  card.style.display = 'none';
+
+  try {
+    const res = await fetch(
+      `${API}/api/dl?q=${encodeURIComponent(q)}`,
+      { method: "GET", credentials: "include", headers: HEADERS }
+    );
+
+    const data = await res.json();
+    console.log('[eypzxdl]', data);
+
+    spinner.style.display = 'none';
+    card.style.display = 'block';
+    pre.innerHTML = highlight(data);
+
+    populateSong(data);
+
+    if (res.ok) showStatus('✓ Song found!', 'success');
+    else showStatus('⚠ API returned an error — see raw response below.', 'error');
+
+  } catch (err) {
+    console.error(err);
+    spinner.style.display = 'none';
+    card.style.display = 'block';
+    pre.textContent = 'Error: ' + err.message;
+    showStatus('✗ Request failed: ' + err.message, 'error');
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+// Enter key support
+document.getElementById('query').addEventListener('keydown', e => {
+  if (e.key === 'Enter') downloadSong();
+});
 </script>
+
 </body>
 </html>
